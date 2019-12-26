@@ -11,7 +11,7 @@ module.exports = {
   author: 'Thais Ribeiro',
   githubUrl: 'https://github.com/thaisribeiro/programe-como-garota',
   // replace this by the url where your website will be published
-  siteUrl: 'http://localhost:8000',
+  siteUrl: 'https://thais-ribeiro-blog.netlify.com/',
   social: {
     // leave the social media you do not want to appear as empty strings
     twitter: '',
