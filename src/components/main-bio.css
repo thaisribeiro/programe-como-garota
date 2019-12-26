@@ -1,10 +1,15 @@
 .main-bio-container {
   display: flex;
-  margin-top: 10em;
+  margin-top: 15em;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+
 .main-bio {
   flex: 0 0 80%;
   margin-right: 1.5rem;
+  z-index: 1;
 }
 .main-bio h1 {
   margin-top: 0;
@@ -16,12 +21,49 @@
 }
 
 .horizontal-links svg path {
-  fill: rgba(0, 0, 0, 0.48);
+  fill: white;
 }
 
 .main-bio-container svg:hover path {
   fill: #7dffb3;
+  
 }
+
+.main-bio h1 {
+  color: white;
+}
+
+#main-bio {
+  background-image: url(https://images.unsplash.com/photo-1521185496955-15097b20c5fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=947&q=80);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#main-bio {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -999;
+}
+
+#main-bio .overlay {
+  background: #151828;
+  opacity: .60;
+}
+
+.overlay {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
 
 @media (max-width: 1024px) {
   .main-bio-container {
@@ -43,6 +85,8 @@
   list-style-type: none;
   margin-bottom: 0;
   padding-left: 0;
+  display: flex;
+  justify-content: center;
 }
 .horizontal-links > li {
   display: inline-block;

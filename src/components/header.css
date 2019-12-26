@@ -1,0 +1,38 @@
+#menu-header {
+    display: flex;
+    float: left;
+    width: 235px
+}
+
+.main-header {
+    background: #E1C340;
+    margin-bottom: 1.45rem;
+}
+.containter-header {
+    background: rebeccapurple;
+    margin-bottom: 1.45rem;
+}
+.container-header-children {
+    margin: 0 auto;
+    max-width: 960;
+    display: flex;
+    justify-items: space-between;
+    align-items: center;
+}
+
+.header-link {
+    color: white;
+    text-decoration: none
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+nav ul li hr {
+    color: black;
+    border: 1px solid;
+}

@@ -88,6 +88,22 @@ function Bio() {
         marginBottom: '4.375rem',
       }}
     >
+      <div className="overlay"></div>
+      <Image
+        className="avatar"
+        fixed={avatar.childImageSharp.fixed}
+        alt={author}
+        style={{
+          marginBottom: 0,
+          minWidth: 150,
+          borderRadius: '100%',
+          border: '8px solid #0c0a0a26',
+          marginBottom: '30px'
+        }}
+        imgStyle={{
+          borderRadius: '50%',
+        }}
+      />
       <div className="main-bio">
         <h1 style={{ marginBottom: '0.875rem' }}>{author}</h1>
         <ul className="horizontal-links" style={{ marginBottom: '0.875rem' }}>
@@ -107,20 +123,6 @@ function Bio() {
         </ul>
         <p>{bio}</p>
       </div>
-      <Image
-        className="avatar"
-        fixed={avatar.childImageSharp.fixed}
-        alt={author}
-        style={{
-          marginBottom: 0,
-          minWidth: 150,
-          borderRadius: '100%',
-          border: '8px solid lavender',
-        }}
-        imgStyle={{
-          borderRadius: '50%',
-        }}
-      />
     </div>
   )
 }
