@@ -38,22 +38,28 @@ export default function Blog() {
       <Section name="menu-header">
         <HEADER />
       </Section>
-      {
+      <div class="cabecalho">
 
-        allMdx.nodes.map(post => (
-          <Section key={post.fields.slug} name={post.fields.slug} centered>
-            <Link to={post.fields.slug} className="blog-listing">
-              <h1>{post.frontmatter.title}</h1>
-              <p>
-                {formatPostDate(post.frontmatter.date)}
-                {` • ${formatReadingTime(post.timeToRead)}`}
-              </p>
-              <Pills items={post.frontmatter.categories} />
-              <p>{post.frontmatter.description}</p>
-            </Link>
-          </Section>
-        ))
-      }
+      </div>
+      <div>
+        {
+
+          allMdx.nodes.map(post => (
+            <Section key={post.fields.slug} name={post.fields.slug} centered>
+              <Link to={post.fields.slug} className="blog-listing">
+                <h1>{post.frontmatter.title}</h1>
+                <p>
+                  {formatPostDate(post.frontmatter.date)}
+                  {` • ${formatReadingTime(post.timeToRead)}`}
+                </p>
+                <Pills items={post.frontmatter.categories} />
+                <p>{post.frontmatter.description}</p>
+              </Link>
+            </Section>
+          ))
+        }
+      </div>
+
 
     </Layout >
   )
