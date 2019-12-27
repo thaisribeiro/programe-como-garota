@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import HEADER from '../components/header'
 import Section from '../components/section'
 import MainBio from '../components/main-bio'
+import Sdk from '../components/sdk-bot'
 
 import './blog-listing.css'
 
@@ -18,7 +19,9 @@ const BlogIndexPage = () => (
     <Section centered name="main-bio">
       <MainBio />
     </Section>
-
+    <Section name="sdk-bot">
+      <Sdk/>
+    </Section>
   </Layout>
 )
 
