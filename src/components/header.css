@@ -4,6 +4,11 @@
     width: 235px
 }
 
+#sdk-bot {
+    position: absolute;
+    bottom: 0;
+}
+
 .main-header {
     background: #E1C340;
     margin-bottom: 1.45rem;
