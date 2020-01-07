@@ -1,95 +1,114 @@
 import React from 'react'
+import { animateScroll } from "react-scroll"
+
+import './chat.css'
 class Chat extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            name: null
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: '',
+      context: {}
     }
+  }
 
-    getWatsonMessageAndInsertTemplate(text = '') {
-        const uri = 'https://shrouded-wave-96094.herokuapp.com/conversation/';
+  componentDidMount() {
+    this.getWatsonMessageAndInsertTemplate()
+    this.scrollToBottom()
+  }
 
-        fetch(uri, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                text,
-                context,
-            }),
-        }).then((response) => {
-            response = response.json()
-            context = response.context
+  scrollToBottom() {
+    animateScroll.scrollToBottom({
+      containerId: "chat"
+    })
+  }
 
-            const template = this.templateChatMessage(response.output.text, 'watson');
-            this.InsertTemplateInTheChat(template)
+  getWatsonMessageAndInsertTemplate(text = '') {
+    const uri = 'https://shrouded-wave-96094.herokuapp.com/conversation/';
 
+    let context = this.state.context
+    fetch(uri, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text,
+        context,
+      })
+    })
+      .then(res => res.json())
+      .then((response) => {
+        context = response.context
 
-            if (response.output.options) {
-                document.querySelector('p').insertAdjacentHTML('afterend', `<div class="options-dialog" id="${response.output.title}"></div>`);
-                const options = response.output.options
-                let elementsHTML = ''
-                options.forEach(option => {
-                    const html_option = `<a href="#" class="input-option" id="${option.value.input.text}" onclick="dialogOption(this)">${option.label}</a><br>`
-                    elementsHTML += html_option
-                })
-
-                document.getElementById(`${response.output.title}`).insertAdjacentHTML('afterbegin', elementsHTML)
-            }
-        })
-
-    }
-
-    dialogOption(option) {
-        this.getWatsonMessageAndInsertTemplate(option.innerHTML)
-
-        const template = this.templateChatMessage(option.innerHTML, 'user')
+        const template = this.templateChatMessage(response.output.text, 'user');
         this.InsertTemplateInTheChat(template)
-    }
 
-    templateChatMessage(message, from) {
-        return `
+        // if (response.output.options) {
+        //     document.querySelector('p').insertAdjacentHTML('afterend', `<div class="options-dialog" id="${response.output.title}"></div>`);
+        //     const options = response.output.options
+        //     let elementsHTML = ''
+        //     options.forEach(option => {
+        //         const html_option = `<a href="#" class="input-option" id="${option.value.input.text}" onclick="dialogOption(this)">${option.label}</a><br>`
+        //         elementsHTML += html_option
+        //     })
+
+        //     document.getElementById(`${response.output.title}`).insertAdjacentHTML('afterbegin', elementsHTML)
+        // }
+      })
+  }
+
+  dialogOption(option) {
+    this.getWatsonMessageAndInsertTemplate(option.innerHTML)
+
+    const template = this.templateChatMessage(option.innerHTML, 'user')
+    this.InsertTemplateInTheChat(template)
+  }
+
+  templateChatMessage(message, from) {
+    return `
         <div class="from-${from}">
           <div class="message-inner">
             <p>${message}</p>
           </div>
         </div>
         `
+  }
+
+  InsertTemplateInTheChat(template) {
+    const div = document.createElement('div')
+    div.innerHTML = template
+
+    document.getElementById('chat').appendChild(div)
+  }
+
+  keyPressed(event) {
+    if (event.key === 'Enter' && this.state.name) {
+      this.getWatsonMessageAndInsertTemplate(this.state.name)
+
+      const template = this.templateChatMessage(this.state.name, 'user')
+      this.InsertTemplateInTheChat(template)
+      this.setState({name: ''})
     }
+  }
 
-    InsertTemplateInTheChat(template) {
-        const div = document.createElement('div')
-        div.innerHTML = template
+  change(event) {
+    this.setState({ name: event.target.value })
+  }
 
-        document.getElementById('chat').appendChild(div)
-    }
-    change(event) {
-        console.log('EVENE',this.state.name, event.target.value)
-        if (event.keyCode == 13 && event.target.value) {
-            this.getWatsonMessageAndInsertTemplate(event.target.value)
-
-            const template = this.templateChatMessage(event.target.value, 'user')
-            this.InsertTemplateInTheChat(template)
-
-            this.setState({ name: event.target.value })
-
-        }
-    }
-
-    render() {
-        return (
-            <div className="chat-column">
-                <div id="chat"></div>
-                <label className="inputOutline">
-                    <input id="textInput" value={this.state.name}
-                        className=" input responsive-column"
-                        autoFocus
-                        type="text" onKeyDown={(e) => this.change(e)}></input>
-                </label>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="chat-column">
+        <div id="chat"></div>
+        <label className="inputOutline">
+          <input value={this.state.name}
+            onKeyPress={(e) => this.keyPressed(e)}
+            onChange={(e) => this.change(e)}
+            className='input responsive-column'
+            placeholder='Escreva aqui...'
+          />
+        </label>
+      </div>
+    )
+  }
 }
 
 export default Chat

@@ -1,20 +1,30 @@
 
 .chat-column {
-    position: absolute;
-    bottom: 0;
-    padding: 0.9375rem 0 0.625rem 0;
+    height: 100%;
+    padding: 0.8675rem 0 1.625rem 0;
     margin: auto;
+    margin-left: 7.5rem;
+    background-color: #ffffff;
     text-align: left;
-    max-width: 25rem;
+    max-width: 60rem;
     min-width: 9.375rem;
+    border-bottom-right-radius: 7.25rem;
+    border-top-right-radius: 4.25rem;
+    border-top-left-radius: 4.25rem;
 }
 
 #chat {
-    margin: 0.75rem;
-    overflow-y: auto;
+    margin: 0.8rem;
+    max-height: 36.9rem;
+    height: 36.9rem;
+    overflow-y:scroll;
     overflow-x: hidden;
-    height: 50vh;
 }
+#chat::-webkit-scrollbar { width:10px; background:transparent }
+ 
+#chat::-webkit-scrollbar-track { background: transparent; }
+ 
+#chat::-webkit-scrollbar-thumb { border-radius:10px; background:transparent;  }
 
 .message-inner {
     opacity: 0;
@@ -32,18 +42,20 @@
     color: #fff;
     letter-spacing: 0.015rem;
     line-height: 1.3125rem;
-    background: #00B4A0;
+    background: #e1c340;
     border-radius: 1.25rem;
     border-bottom-right-radius: 0;
     text-align: left;
     display: inline-block;
-    margin-left: 2.5rem;
+    margin-left: 0.5rem;
     min-width: 2.5rem;
 }
 
 .from-user .message-inner p {
     margin: 0.3125rem;
     padding: 0 0.9375rem;
+    font-size: 15px;
+    color: #323232;
 }
 
 .from-user .message-inner:before, .from-user .message-inner:after {
@@ -57,7 +69,7 @@
     right: 0;
     height: 0.375rem;
     width: 0.5rem;
-    background: #1cb3a0;
+    background: #e1c340;
 }
 
 .from-user .message-inner:after {
@@ -113,9 +125,14 @@
 
 .inputOutline {
     display: block;
-    border-bottom: 0.0625rem solid #aeaeae;
+    border-top: 0.0625rem solid #aeaeae;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+    width: 90%
+}
+
+.inputOutline input{
+    width: 100%;
 }
 
 .options-dialog {
@@ -125,7 +142,7 @@
 }
 
 .input-option {
-  background-color: #9855D4;
+  background-color: #e1c340;
   display: inline-flex;
   cursor: pointer;
   color: #ffffff;
