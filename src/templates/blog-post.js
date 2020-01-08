@@ -6,6 +6,9 @@ import SEO from '../components/seo'
 import Pills from '../components/pills'
 import Bio from '../components/bio'
 import Embed from '../components/embed'
+import Section from '../components/section'
+import HEADER from '../components/header'
+import HeaderBlog from '../components/header-blog'
 import { formatPostDate, formatReadingTime } from '../utils/dates'
 
 import './blog-post.css'
@@ -32,11 +35,15 @@ export default function PageTemplate({ data: { mdx, site }, pageContext }) {
           },
         ]}
       />
+      <Section name="menu-header">
+        <HEADER />
+      </Section>
+      <HeaderBlog />
       <section className="center blog">
         <article className="container small">
           <header>
             <h1>
-              <Link to="/">«</Link> {mdx.frontmatter.title}
+              <Link to="/blogs">«</Link> {mdx.frontmatter.title}
             </h1>
             <p>
               {formatPostDate(mdx.frontmatter.date)}
@@ -48,25 +55,6 @@ export default function PageTemplate({ data: { mdx, site }, pageContext }) {
           <MDXRenderer scope={{ Embed }}>{mdx.body}</MDXRenderer>
         </article>
         <footer className="container small">
-          <small>
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={`https://twitter.com/search?q=${publicUrl}`}
-            >
-              Discuss on Twitter
-            </a>{' '}
-            &middot;{' '}
-            <a
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              href={`${site.siteMetadata.githubUrl}/edit/master/content${
-                mdx.fields.slug
-              }index.md`}
-            >
-              Edit this post on GitHub
-            </a>
-          </small>
           <hr
             style={{
               margin: `24px 0`,

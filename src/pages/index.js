@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import HEADER from '../components/header'
 import Section from '../components/section'
 import MainBio from '../components/main-bio'
-import Sdk from '../components/sdk-bot'
+import Avatar from '../components/sdk-bot'
 
 import './blog-listing.css'
 
@@ -20,7 +20,7 @@ const BlogIndexPage = () => (
       <MainBio />
     </Section>
     <Section name="sdk-bot">
-      <Sdk/>
+      <Avatar/>
     </Section>
   </Layout>
 )

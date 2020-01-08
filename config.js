@@ -8,7 +8,7 @@ module.exports = {
     },
     {
       "name": "Blog",
-      "link": "/blog"
+      "link": "/blogs"
     }
   ],
   shortBio: '',

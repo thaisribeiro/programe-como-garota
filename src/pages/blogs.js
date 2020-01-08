@@ -6,6 +6,7 @@ import SEO from '../components/seo'
 import { formatPostDate, formatReadingTime } from '../utils/dates'
 import Section from '../components/section'
 import HEADER from '../components/header'
+import HeaderBlog from '../components/header-blog'
 
 export default function Blog() {
   const { allMdx } = useStaticQuery(
@@ -38,10 +39,8 @@ export default function Blog() {
       <Section name="menu-header">
         <HEADER />
       </Section>
-      <div class="cabecalho">
-
-      </div>
-      <div>
+      <HeaderBlog/>
+      <div className='blog'>
         {
 
           allMdx.nodes.map(post => (

@@ -7,13 +7,16 @@ class Chat extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      opened: false,
       name: '',
       context: {}
     }
   }
+  componentWillMount() {
+    this.getWatsonMessageAndInsertTemplate()
+  }
 
   componentDidMount() {
-    this.getWatsonMessageAndInsertTemplate()
     this.scrollToBottom()
   }
 
@@ -39,19 +42,19 @@ class Chat extends React.Component {
       .then((response) => {
         context = response.context
 
-        const template = this.templateChatMessage(response.output.text, 'user');
+        const template = this.templateChatMessage(response.output.text, 'watson');
         this.InsertTemplateInTheChat(template)
-
+        console.log('RESPONSEEEE', response.output.options)
         // if (response.output.options) {
-        //     document.querySelector('p').insertAdjacentHTML('afterend', `<div class="options-dialog" id="${response.output.title}"></div>`);
-        //     const options = response.output.options
-        //     let elementsHTML = ''
-        //     options.forEach(option => {
-        //         const html_option = `<a href="#" class="input-option" id="${option.value.input.text}" onclick="dialogOption(this)">${option.label}</a><br>`
-        //         elementsHTML += html_option
-        //     })
+        //   document.querySelector('p').insertAdjacentHTML('afterend', `<div class="options-dialog" id="${response.output.title}"></div>`);
+        //   const options = response.output.options
+        //   let elementsHTML = ''
+        //   options.forEach(option => {
+        //     const html_option = `<a href="#" class="input-option" id="${option.value.input.text}" onclick="dialogOption(this)">${option.label}</a><br>`
+        //     elementsHTML += html_option
+        //   })
 
-        //     document.getElementById(`${response.output.title}`).insertAdjacentHTML('afterbegin', elementsHTML)
+        //   document.getElementById(`${response.output.title}`).insertAdjacentHTML('afterbegin', elementsHTML)
         // }
       })
   }
@@ -86,7 +89,7 @@ class Chat extends React.Component {
 
       const template = this.templateChatMessage(this.state.name, 'user')
       this.InsertTemplateInTheChat(template)
-      this.setState({name: ''})
+      this.setState({ name: '' })
     }
   }
 
@@ -97,7 +100,9 @@ class Chat extends React.Component {
   render() {
     return (
       <div className="chat-column">
-        <div id="chat"></div>
+        <div id="chat">
+          <div class='from-watson'></div>
+        </div>
         <label className="inputOutline">
           <input value={this.state.name}
             onKeyPress={(e) => this.keyPressed(e)}

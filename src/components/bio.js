@@ -53,11 +53,11 @@ function Bio() {
         }}
       />
       <p style={{ margin: 0 }}>
-        Written by <strong>{author}</strong>
+        Escrito por <strong>{author}</strong>
         {shortBio ? ` ${shortBio}` : ''}.{` `}
         {social.twitter ? (
           <a href={`https://twitter.com/${social.twitter}`}>
-            You should follow them on Twitter.
+            Me siga no twitter.
           </a>
         ) : null}
       </p>
