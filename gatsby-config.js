@@ -61,13 +61,6 @@ module.exports = {
         path: `${__dirname}/content`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blogs',
-        path: `${__dirname}/content/blog`
-      },
-    },
     'gatsby-plugin-netlify',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
