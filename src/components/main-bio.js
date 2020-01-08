@@ -50,7 +50,7 @@ function Bio() {
   const { site, avatar } = useStaticQuery(
     graphql`
       query MainBioQuery {
-        avatar: file(absolutePath: { regex: "/avatar.png/" }) {
+        avatar: file(absolutePath: { regex: "/thais.png/" }) {
           childImageSharp {
             fixed(width: 150, height: 150, quality: 90) {
               base64
