@@ -6,7 +6,9 @@
     background-color: #e5ddd5;
     text-align: left;
     max-width: 60rem;
-    min-width: 9.375rem;
+    font-weight: 500;
+    /* min-width: 9.375rem; */
+    min-width: 40rem;
     border-bottom-right-radius: 7.25rem;
     border-top-right-radius: 4.25rem;
     border-top-left-radius: 4.25rem;
@@ -159,14 +161,15 @@
     background-color: #e1c340;
     display: inline-flex;
     cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
+    color: black;
     font-size: 14px;
-    padding: 15px 31px;
+    padding: 15px 10px;
     text-decoration: none;
     width: 80%;
     margin-left: 1.5rem;
+    margin-top: 5px;
 }
+
 
 @media only screen and (max-width: 1000px) {
     html {

@@ -9,21 +9,14 @@ class Chat extends React.Component {
     this.state = {
       opened: false,
       name: '',
-      context: {}
+      context: {},
+      options: []
     }
+    this.handleKeyPress = this.handleKeyPress.bind(this);
   }
+
   componentWillMount() {
     this.getWatsonMessageAndInsertTemplate()
-  }
-
-  componentDidMount() {
-    this.scrollToBottom()
-  }
-
-  scrollToBottom() {
-    animateScroll.scrollToBottom({
-      containerId: "chat"
-    })
   }
 
   getWatsonMessageAndInsertTemplate(text = '') {
@@ -44,29 +37,48 @@ class Chat extends React.Component {
 
         const template = this.templateChatMessage(response.output.text, 'watson');
         this.InsertTemplateInTheChat(template)
-        console.log('RESPONSEEEE', response.output.options)
-        // if (response.output.options) {
-        //   document.querySelector('p').insertAdjacentHTML('afterend', `<div class="options-dialog" id="${response.output.title}"></div>`);
-        //   const options = response.output.options
-        //   let elementsHTML = ''
-        //   options.forEach(option => {
-        //     const html_option = `<a href="#" class="input-option" id="${option.value.input.text}" onclick="dialogOption(this)">${option.label}</a><br>`
-        //     elementsHTML += html_option
-        //   })
 
-        //   document.getElementById(`${response.output.title}`).insertAdjacentHTML('afterbegin', elementsHTML)
-        // }
+        if (response.output.options) {
+          document.querySelectorAll('div.message-inner p')[document.querySelectorAll('div.message-inner p').length - 1].insertAdjacentHTML('afterend', `<div class="options-dialog" id="${response.output.title}"></div>`);
+          const options = response.output.options
+          let elementsHTML = ''
+          options.forEach(option => {
+            this.setState({
+              options: this.state.options.concat([option.value.input.text])
+            })
+
+            const html_option = `<a href="#" class="input-option" id="${option.value.input.text}" onclick=this.dialogOption(this)">${option.label}</a>`
+            elementsHTML += html_option
+          })
+
+          document.getElementById(`${response.output.title}`).insertAdjacentHTML('afterbegin', elementsHTML)
+        }
       })
   }
 
-  dialogOption(option) {
-    this.getWatsonMessageAndInsertTemplate(option.innerHTML)
+  componentDidUpdate() {
+    document.addEventListener('click', this.handleKeyPress)
+  }
 
-    const template = this.templateChatMessage(option.innerHTML, 'user')
+  handleKeyPress(event) {
+    this.dialogOption(event.target)
+  }
+
+  dialogOption(option) {
+    this.setState({ name: option.innerHTML })
+    this.getWatsonMessageAndInsertTemplate(this.state.name)
+
+    const template = this.templateChatMessage(this.state.name, 'user')
     this.InsertTemplateInTheChat(template)
+    this.setState({ name: '' })
   }
 
   templateChatMessage(message, from) {
+    if (typeof message === 'object') {
+      message = `<p>${message.join('</p><p>')}</p>`
+      console.log('MESSAGE', message)
+    }
+
     return `
         <div class="from-${from}">
           <div class="message-inner">

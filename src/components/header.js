@@ -21,8 +21,6 @@ function HEADER() {
 		`
 	)
 	const { menuLinks, title } = site.siteMetadata
-	console.log('MENU LINKS', menuLinks)
-	console.log('MENU LINKS TIT', title)
 	return (
 		<header class="main-header">
 			<div class="container-header">
