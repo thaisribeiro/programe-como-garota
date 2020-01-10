@@ -88,7 +88,6 @@ function Bio() {
         marginBottom: '4.375rem',
       }}
     >
-      <div className="overlay"></div>
       <Image
         className="avatar"
         fixed={avatar.childImageSharp.fixed}

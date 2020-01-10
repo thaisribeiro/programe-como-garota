@@ -1,6 +1,6 @@
 .main-bio-container {
   display: flex;
-  margin-top: 15em;
+  margin-top: 5em;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -40,7 +40,7 @@
   background-repeat: no-repeat;
 }
 
-#main-bio {
+/* #main-bio {
   position: absolute;
   display: block;
   width: 100%;
@@ -48,8 +48,8 @@
   top: 0;
   left: 0;
   z-index: -999;
-}
-
+} */
+/* 
 #main-bio .overlay {
   background: #151828;
   opacity: .60;
@@ -62,7 +62,7 @@
   height: 100%;
   top: 0;
   left: 0;
-}
+} */
 
 
 @media (max-width: 1024px) {

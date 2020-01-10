@@ -11,11 +11,11 @@
 
 .main-header {
     background: #E1C340;
-    margin-bottom: 1.45rem;
+    /* margin-bottom: 1.45rem; */
 }
 .containter-header {
     background: rebeccapurple;
-    margin-bottom: 1.45rem;
+    /* margin-bottom: 1.45rem; */
 }
 .container-header-children {
     margin: 0 auto;
@@ -23,6 +23,7 @@
     display: flex;
     justify-items: space-between;
     align-items: center;
+    height: 100px;
 }
 
 .header-link {
