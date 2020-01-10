@@ -12,3 +12,9 @@
 .blog-listing h1 {
   margin-bottom: 1rem;
 }
+
+.item-home {
+  width: 100%;
+  position: relative;
+  z-index: 3;
+}

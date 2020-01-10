@@ -13,7 +13,17 @@ import './blog-listing.css'
 const BlogIndexPage = () => (
   <Layout>
     <SEO />
-    <Section name="menu-header">
+    <Section name="main-bio">
+      <div className="overlay-home"></div>
+      <div className="item-home">
+        <HEADER />
+        <MainBio />
+      </div>
+      <div className="item-home">
+        <Avatar />
+      </div>
+    </Section>
+    {/* <Section name="menu-header">
       <HEADER/>
     </Section>
     <Section centered name="main-bio">
@@ -21,7 +31,7 @@ const BlogIndexPage = () => (
     </Section>
     <Section name="sdk-bot">
       <Avatar/>
-    </Section>
+    </Section> */}
   </Layout>
 )
 

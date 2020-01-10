@@ -13,10 +13,12 @@
     background: #E1C340;
     margin-bottom: 1.45rem;
 }
+
 .containter-header {
     background: rebeccapurple;
     margin-bottom: 1.45rem;
 }
+
 .container-header-children {
     margin: 0 auto;
     max-width: 960;
@@ -28,6 +30,11 @@
 .header-link {
     color: white;
     text-decoration: none
+}
+
+nav {
+    z-index: 333;
+    position: static;
 }
 
 nav ul {
