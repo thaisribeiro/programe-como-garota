@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { Widget, addResponseMessage, setQuickButtons } from 'react-chat-widget'
-
 import 'react-chat-widget/lib/styles.css'
 import './chatbot.css'
 import logo from './thais-avatar.png'
-
+let ReactChat
 class ChatBot extends Component {
   constructor(props) {
     super(props)
@@ -13,12 +11,15 @@ class ChatBot extends Component {
       buttons: [],
       options: [],
       display: 'block',
-      clicked: false
+      clicked: false,
+      reactchat: false
     }
   }
 
   componentDidMount() {
     if (typeof window !== "undefined") {
+      ReactChat = require('react-chat-widget')
+      this.setState({ reactchat: true })
       this.getWatsonMessage()
     }
 
@@ -44,8 +45,7 @@ class ChatBot extends Component {
 
         messages.forEach(msg => {
           this.setState({ options: [] })
-
-          addResponseMessage(msg)
+          ReactChat.addResponseMessage(msg)
           let params = []
           const options = data.output.options || []
           const elem = document.getElementsByClassName('quick-buttons')
@@ -56,7 +56,7 @@ class ChatBot extends Component {
             })
 
             this.setState({ options: params })
-            setQuickButtons(this.state.options)
+            ReactChat.setQuickButtons(this.state.options)
             if (elem.length) {
               this.setState({ display: 'flex' })
               elem[0].style.display = this.state.display
@@ -93,14 +93,17 @@ class ChatBot extends Component {
   render() {
     return (
       <div className="avatar-container">
-        <Widget
-          handleNewUserMessage={this.handleNewUserMessage}
-          profileAvatar={logo}
-          title=""
-          subtitle=""
-          senderPlaceHolder="Digite aqui sua mensagem..."
-          handleQuickButtonClicked={this.handleQuickButtonClicked}
-        />
+        {
+          this.state.reactchat ? (<ReactChat.Widget
+            handleNewUserMessage={this.handleNewUserMessage}
+            profileAvatar={logo}
+            title=""
+            subtitle=""
+            senderPlaceHolder="Digite aqui sua mensagem..."
+            handleQuickButtonClicked={this.handleQuickButtonClicked}
+          />) : ''
+        }
+
       </div>
     );
   }
