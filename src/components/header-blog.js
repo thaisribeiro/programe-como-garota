@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from 'gatsby'
-import './header-blog.css'
 import MenuHeader from '../components/menu'
 
+import './header-blog.css'
 
 export default function HeaderBlog(props) {
   return (

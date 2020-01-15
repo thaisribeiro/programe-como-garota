@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Widget, addResponseMessage, setQuickButtons } from 'react-chat-widget';
+import React, { Component } from 'react'
+import { Widget, addResponseMessage, setQuickButtons } from 'react-chat-widget'
 
 import 'react-chat-widget/lib/styles.css'
 import './chatbot.css'
@@ -18,7 +18,10 @@ class ChatBot extends Component {
   }
 
   componentDidMount() {
-    this.getWatsonMessage();
+    if (typeof window !== "undefined") {
+      this.getWatsonMessage()
+    }
+
   }
 
   getWatsonMessage = (text = '') => {

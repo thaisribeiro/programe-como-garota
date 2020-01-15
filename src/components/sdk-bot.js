@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Image from 'gatsby-image'
 import { useStaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 import Chat from './chat'
 
 import './sdk-bot.css'
@@ -8,7 +8,7 @@ import './sdk-bot.css'
 function Sdk() {
   const [opened, setOpened] = useState(false)
 
-  const { site, avatar } = useStaticQuery(
+  const { avatar } = useStaticQuery(
     graphql`
           query AvatarQuery {
             avatar: file(absolutePath: { regex: "/thais-avatar.png/" }) {

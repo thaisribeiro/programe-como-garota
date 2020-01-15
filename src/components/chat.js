@@ -1,5 +1,4 @@
 import React from 'react'
-import { animateScroll } from "react-scroll"
 
 import './chat.css'
 class Chat extends React.Component {
