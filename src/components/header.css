@@ -3,6 +3,9 @@
     float: left;
     width: 235px
 }
+#menu-header .container {
+    width: 20%;
+}
 
 #sdk-bot {
     position: absolute;
@@ -12,6 +15,7 @@
 .main-header {
     background: #E1C340;
     margin-bottom: 1.45rem;
+    width: 150px;
 }
 
 .containter-header {

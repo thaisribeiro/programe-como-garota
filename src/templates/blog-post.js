@@ -7,15 +7,15 @@ import Pills from '../components/pills'
 import Bio from '../components/bio'
 import Embed from '../components/embed'
 import Section from '../components/section'
-import HEADER from '../components/header'
+import MenuHeader from '../components/menu'
 import HeaderBlog from '../components/header-blog'
+import Footer from '../components/footer'
 import { formatPostDate, formatReadingTime } from '../utils/dates'
 
 import './blog-post.css'
 
 export default function PageTemplate({ data: { mdx, site }, pageContext }) {
   const { previous, next } = pageContext
-  const publicUrl = `${site.siteMetadata.siteUrl}${mdx.fields.slug}`
 
   return (
     <div>
@@ -35,23 +35,16 @@ export default function PageTemplate({ data: { mdx, site }, pageContext }) {
           },
         ]}
       />
-      <Section name="menu-header">
-        <HEADER />
-      </Section>
-      <HeaderBlog />
+      <HeaderBlog image={'/static/a6d48677fd2dde7a0401bc27bbb61584/11ab1/about.jpg'} mensagemtopo={mdx.frontmatter.title} link="/blogs"/>
       <section className="center blog">
         <article className="container small">
-          <header>
-            <h1>
-              <Link to="/blogs">«</Link> {mdx.frontmatter.title}
-            </h1>
-            <p>
-              {formatPostDate(mdx.frontmatter.date)}
-              {` • ${formatReadingTime(mdx.timeToRead)}`}
-            </p>
-            <Pills items={mdx.frontmatter.categories} />
-          </header>
-
+          <p style={{
+            fontSize: '15px',
+            textAlign: 'center'
+          }}>
+            <strong>• Publicado em:</strong> {formatPostDate(mdx.frontmatter.date)}
+            {` | ${formatReadingTime(mdx.timeToRead)}`}
+          </p>
           <MDXRenderer scope={{ Embed }}>{mdx.body}</MDXRenderer>
         </article>
         <footer className="container small">
@@ -87,6 +80,9 @@ export default function PageTemplate({ data: { mdx, site }, pageContext }) {
           </ul>
         </footer>
       </section>
+      <div className="item-footer">
+        <Footer />
+      </div>
     </div>
   )
 }

@@ -53,7 +53,7 @@ function Bio() {
         }}
       />
       <p style={{ margin: 0 }}>
-        Escrito por <strong>{author}</strong>
+        Escrito por <strong>Thais Ribeiro</strong>
         {shortBio ? ` ${shortBio}` : ''}.{` `}
         {social.twitter ? (
           <a href={`https://twitter.com/${social.twitter}`}>

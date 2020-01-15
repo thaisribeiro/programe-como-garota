@@ -1,15 +1,22 @@
+.menu-header {
+    position: static;
+    z-index: 10;
+}
+
+.header-blog {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .cabecalho {
     width: 100%;
     max-width: 100%;
     height: 250px;
     margin: 0 auto;
     margin-bottom: 0.2em;
-    background-image: url('foto-blog.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     position: relative;
-    z-index: -1;
+    z-index: 1;
 }
 
 .cabecalho .overlay {
@@ -26,24 +33,45 @@
     left: 0;
 }
 
+.header-blog .overlay-posts {
+    background: #53565A;
+    opacity: .60;
+}
+
+.overlay-posts {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 255px;
+    top: 0;
+    left: 0;
+}
+
 .description-blog {
     position: relative;
     margin: 0;
-    background: #e1c340d6;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
-    width: 35%;
-    height: 35%;
+    width: 55%;
+    height: 55%;
     border-bottom-right-radius: 26px;
     border-top-right-radius: 26px;
     border-top-left-radius: 26px;
 }
 
 .description-blog h1 {
-    line-height: 25px;
+    line-height: 65px;
     text-align: center;
-    color: rgba(0, 0, 0, 0.84);
+    color: white;
+    font-size: 40px;
+}
+
+.description-blog h1 a {
+    text-decoration: none;
+    font-size: 60px;
+    color: #E1C340;
+    margin-right: 7px;
 }

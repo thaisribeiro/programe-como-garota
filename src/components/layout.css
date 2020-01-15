@@ -28,6 +28,10 @@ body {
   color: rgba(0, 0, 0, 0.84);
   text-rendering: optimizeLegibility;
 }
+main {
+  display: flex;
+  flex-direction: column
+}
 
 h1,
 h2,

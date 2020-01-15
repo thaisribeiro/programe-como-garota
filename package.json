@@ -33,11 +33,16 @@
     "gatsby-transformer-sharp": "^2.1.19",
     "prism-react-renderer": "^0.1.6",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.12.0",
+    "react-burger-menu": "^2.6.13",
+    "react-chat-widget": "^2.1.5",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
+    "react-icons": "^3.8.0",
+    "react-push-menu": "^3.0.2",
     "react-scroll": "^1.7.15",
-    "start": "^5.1.0"
+    "start": "^5.1.0",
+    "styled-components": "^5.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

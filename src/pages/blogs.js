@@ -1,21 +1,29 @@
-import React from "react"
+import React from 'react'
 import { Link, graphql, useStaticQuery } from 'gatsby'
 import Layout from "../components/layout"
 import Pills from '../components/pills'
 import SEO from '../components/seo'
 import { formatPostDate, formatReadingTime } from '../utils/dates'
 import Section from '../components/section'
-import HEADER from '../components/header'
+import Footer from '../components/footer'
 import HeaderBlog from '../components/header-blog'
 
 export default function Blog() {
-  const { allMdx } = useStaticQuery(
+  const { allMdx, avatar } = useStaticQuery(
     graphql`
     query BlogsIndex {
-      allMdx(
-        filter: { fields: { published: { eq: true } } }
-        sort: { fields: [frontmatter___date], order: DESC }
-      ) {
+      avatar: file(absolutePath: {regex: "/fundo-blog.jpg/"}) {
+        childImageSharp {
+          fixed(width: 1000, height: 1000, quality: 90) {
+            base64
+            width
+            height
+            src
+            srcSet
+          }
+        }
+      }
+      allMdx(filter: {fields: {published: {eq: true}}}, sort: {fields: [frontmatter___date], order: DESC}) {
         nodes {
           fields {
             slug
@@ -29,18 +37,16 @@ export default function Blog() {
           }
         }
       }
-    }
-  `
+    }`
   )
+
 
   return (
     <Layout>
       <SEO />
-      <Section name="menu-header">
-        <HEADER />
-      </Section>
-      <HeaderBlog/>
+      <HeaderBlog image={avatar.childImageSharp.fixed.src} mensagemtopo="Blog" link="/" />
       <div className='blog'>
+
         {
 
           allMdx.nodes.map(post => (
@@ -58,7 +64,9 @@ export default function Blog() {
           ))
         }
       </div>
-
+      <div className="item-footer">
+        <Footer />
+      </div>
 
     </Layout >
   )

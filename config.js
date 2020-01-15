@@ -9,6 +9,10 @@ module.exports = {
     {
       "name": "Blog",
       "link": "/blogs"
+    },
+    {
+      "name": "Quem sou eu?",
+      "link": "/sobre"
     }
   ],
   shortBio: '',

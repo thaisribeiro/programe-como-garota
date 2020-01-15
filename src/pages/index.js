@@ -3,10 +3,11 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import HEADER from '../components/header'
 import Section from '../components/section'
 import MainBio from '../components/main-bio'
-import Avatar from '../components/sdk-bot'
+import Footer from '../components/footer'
+import MenuHeader from '../components/menu'
+import ChatBot from '../components/chatbot'
 
 import './blog-listing.css'
 
@@ -15,23 +16,19 @@ const BlogIndexPage = () => (
     <SEO />
     <Section name="main-bio">
       <div className="overlay-home"></div>
+      <div className="item-home-menu">
+        <MenuHeader />
+      </div>
       <div className="item-home">
-        <HEADER />
         <MainBio />
       </div>
       <div className="item-home">
-        <Avatar />
+        <ChatBot/>
       </div>
     </Section>
-    {/* <Section name="menu-header">
-      <HEADER/>
-    </Section>
-    <Section centered name="main-bio">
-      <MainBio />
-    </Section>
-    <Section name="sdk-bot">
-      <Avatar/>
-    </Section> */}
+    <div className="item-footer">
+      <Footer />
+    </div>
   </Layout>
 )
 

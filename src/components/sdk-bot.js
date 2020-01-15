@@ -50,11 +50,10 @@ function Sdk() {
           style={{
             marginBottom: 0,
             minWidth: 80,
-            maxWidth: 120,
-            maxHeight: 120,
-            marginBottom: '100px',
-            borderRadius: '100%',
-            boxShadow: '#9c9696 3px 52px 55px -34px'
+            maxWidth: 200,
+            maxHeight: 200,
+            marginBottom: '20px',
+            left: '40%'
           }}
           imgStyle={{
             borderRadius: '50%',

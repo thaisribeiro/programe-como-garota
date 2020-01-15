@@ -80,7 +80,6 @@ exports.createPages = ({ graphql, actions, reporter, pathPrefix }) => {
     }
 
     const posts = result.data.allMdx.edges
-    // We'll call `createPage` for each result
     posts.forEach(({ node }, index) => {
       let previous = index === posts.length - 1 ? null : posts[index + 1].node
       let next = index === 0 ? null : posts[index - 1].node

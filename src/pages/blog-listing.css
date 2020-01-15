@@ -18,3 +18,15 @@
   position: relative;
   z-index: 3;
 }
+
+.item-home-menu {
+  width: 100%;
+  position: static;
+  z-index: 10;
+}
+
+.item-footer {
+  position: static;
+  z-index: 1;
+  background-color: #747474
+}
