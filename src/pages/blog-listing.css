@@ -30,3 +30,9 @@
   z-index: 1;
   background-color: #747474
 }
+
+@media (max-width: 1024px) {
+  .blog-listing {
+    padding: 0.8rem;
+  }
+}

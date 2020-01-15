@@ -3,11 +3,9 @@ import { Link, graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import SEO from '../components/seo'
-import Pills from '../components/pills'
+
 import Bio from '../components/bio'
 import Embed from '../components/embed'
-import Section from '../components/section'
-import MenuHeader from '../components/menu'
 import HeaderBlog from '../components/header-blog'
 import Footer from '../components/footer'
 import { formatPostDate, formatReadingTime } from '../utils/dates'
