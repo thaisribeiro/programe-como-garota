@@ -21,7 +21,7 @@ module.exports = {
   githubUrl: 'https://github.com/thaisribeiro/programe-como-garota',
   siteUrl: 'https://thais-ribeiro-blog.netlify.com/',
   social: {
-    twitter: 'https://twitter.com/thaisplicandoo',
+    twitter: 'thaisplicandoo',
     medium: '@thaisribe',
     facebook: '/thaisribeirodn',
     github: '',

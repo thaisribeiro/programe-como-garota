@@ -62,7 +62,7 @@ function Bio() {
       />
       <div className="main-bio">
         <h1 style={{ marginBottom: '0.875rem' }}>{author}</h1>
-        <p>Software Engineer & Blogguer</p>
+        <p>Software Engineer & Blogger</p>
       </div>
     </div>
   )

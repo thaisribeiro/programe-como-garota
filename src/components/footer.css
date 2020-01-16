@@ -36,7 +36,11 @@
 @media (max-width: 1024px) {
     .footer-container {
         flex-wrap: wrap;
-        margin-top: 2em;
+        /* margin-top: 2em; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0;
     }
 }
 

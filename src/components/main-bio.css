@@ -59,7 +59,7 @@
 @media (max-width: 1024px) {
   .main-bio-container {
     flex-wrap: wrap;
-    margin-top: 9em;
+    margin-top: 11.8em;
   }
   .main-bio {
     order: 1;

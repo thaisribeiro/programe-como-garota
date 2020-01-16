@@ -11,6 +11,7 @@ import Footer from '../components/footer'
 import { formatPostDate, formatReadingTime } from '../utils/dates'
 
 import './blog-post.css'
+import logo from './fundo-blog.jpg'
 
 export default function PageTemplate({ data: { mdx, site }, pageContext }) {
   const { previous, next } = pageContext
@@ -33,7 +34,7 @@ export default function PageTemplate({ data: { mdx, site }, pageContext }) {
           },
         ]}
       />
-      <HeaderBlog image={'/static/a6d48677fd2dde7a0401bc27bbb61584/11ab1/about.jpg'} mensagemtopo={mdx.frontmatter.title} link="/blogs"/>
+      <HeaderBlog image={logo} mensagemtopo={mdx.frontmatter.title} link="/blogs" />
       <section className="center blog">
         <article className="container small">
           <p style={{
